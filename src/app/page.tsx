@@ -9,6 +9,7 @@ import { awardCoin } from "@/lib/services/coinService";
 import { Send, GraduationCap, MessagesSquare, Coins, Library } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { DesktopIcon } from "@/components/win2k/DesktopIcon";
 
 interface Message {
     role: "user" | "ai";
@@ -106,25 +107,18 @@ export default function Home() {
 
             {/* Top Utility Bar (Desktop Icons style or just buttons) */}
             <div className="flex justify-between items-center text-white">
-                <div className="flex gap-4">
-                    <Link href="/library">
-                        <div className="flex flex-col items-center cursor-pointer hover:opacity-80 group">
-                            <div className="w-10 h-10 mb-1 bg-white/10 border border-white/30 flex items-center justify-center group-hover:bg-[#000080]/50">
-                                <Library />
-                            </div>
-                            <span className="text-xs shadow-black drop-shadow-md bg-[#008080] px-1">Library</span>
-                        </div>
-                    </Link>
-                    <Link href="/community">
-                        <div className="flex flex-col items-center cursor-pointer hover:opacity-80 group">
-                            <div className="w-10 h-10 mb-1 bg-white/10 border border-white/30 flex items-center justify-center group-hover:bg-[#000080]/50">
-                                <MessagesSquare />
-                            </div>
-                            <span className="text-xs shadow-black drop-shadow-md bg-[#008080] px-1">Common Room</span>
-                        </div>
-                    </Link>
+                <div className="flex flex-col gap-4">
+                    <DesktopIcon
+                        label="Library"
+                        icon={<Library size={24} />}
+                        href="/library"
+                    />
+                    <DesktopIcon
+                        label="Common Room"
+                        icon={<MessagesSquare size={24} />}
+                        href="/community"
+                    />
                 </div>
-
                 {/* User Status */}
                 <div className="flex items-center gap-4">
                     {user ? (
