@@ -1,11 +1,6 @@
 import React from 'react';
 import { X, Minus, Square } from 'lucide-react';
-import { cn } from '@/lib/utils'; // Assuming standard cn utility is added later, or I'll implement it now inline if needed, but standard practice is to have it.
-
-// Minimal class merger since I haven't created utils.ts yet
-function clsx(...inputs: (string | undefined | null | false)[]) {
-    return inputs.filter(Boolean).join(" ");
-}
+import { cn } from '@/lib/utils';
 
 interface WinWindowProps {
     title: string;
@@ -18,12 +13,12 @@ interface WinWindowProps {
 
 export function WinWindow({ title, children, className, isActive = true, onClose, icon }: WinWindowProps) {
     return (
-        <div className={clsx(
+        <div className={cn(
             "bg-win-gray p-1 shadow-win-out flex flex-col",
             className
         )}>
             {/* Title Bar */}
-            <div className={clsx(
+            <div className={cn(
                 "flex items-center justify-between px-1 py-0.5 mb-1",
                 isActive ? "bg-win-gradient text-white" : "bg-win-gray-dark text-win-gray-light"
             )}>
